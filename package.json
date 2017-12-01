@@ -1,0 +1,32 @@
+{
+  "name": "interactive-ceo-salary-ticker",
+  "version": "1.0.0",
+  "description": "A project generated from aunty's preact-app template.",
+  "license": "MIT",
+  "private": true,
+  "contributors": [
+    "Nathan Hoad <nathan@nathanhoad.net>"
+  ],
+  "aunty": "preact-app",
+  "scripts": {
+    "start": "aunty serve",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      ".*": "<rootDir>/node_modules/@abcnews/aunty/src/utils/jest"
+    }
+  },
+  "devDependencies": {
+    "@abcnews/aunty": "^7.6.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "html-looks-like": "^1.0.3",
+    "jest": "^21.2.1",
+    "preact-render-to-string": "^3.7.0"
+  },
+  "dependencies": {
+    "preact": "^8.2.6",
+    "preact-compat": "^3.17.0"
+  }
+}
