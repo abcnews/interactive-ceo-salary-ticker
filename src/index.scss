@@ -4,8 +4,7 @@
   font-size: 30px;
   line-height: 40px;
   color: #023860;
-  padding: 20px;
-
+  padding-bottom: 40px;
   margin: auto;
 
   p {
@@ -30,4 +29,21 @@
   font-size: 50px;
   line-height: 60px;
   font-family: ABCSerif, Book Antiqua, 'Palatino Linotype', Palatino, serif;
+}
+
+@media screen and (max-device-width: 400px) {
+  .base {
+    font-size: 17px;
+    line-height: 25px;
+  }
+
+  .ceoSalary {
+    font-size: 50px;
+    line-height: 58px;
+  }
+
+  .workerSalary {
+    font-size: 35px;
+    line-height: 40px;
+  }
 }

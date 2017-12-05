@@ -3,8 +3,8 @@ const html = require('bel');
 const styles = require('./index.scss');
 
 const START_TIME = new Date().getTime();
-const CEO_PER_SECOND = 4750326.6 / 31557600 / 10; // seconds in a year
-const WORKER_PER_SECOND = 60900 / 31557600 / 10;
+const CEO_PER_MILLISECOND = 4750326.6 / 31557600 / 1000; // milliseconds in a year
+const WORKER_PER_MILLISECOND = 60900 / 31557600 / 1000;
 
 function all(query) {
   return [].slice.call(document.querySelectorAll(query));
@@ -26,10 +26,12 @@ function init() {
 
   // Count up
   setInterval(() => {
-    const seconds = (new Date().getTime() - START_TIME) / 100;
-    all('.' + styles.ceoSalary).forEach(el => (el.innerText = '$' + (seconds * CEO_PER_SECOND).toFixed(2)));
-    all('.' + styles.workerSalary).forEach(el => (el.innerText = '$' + (seconds * WORKER_PER_SECOND).toFixed(2)));
-  }, 100);
+    const milliseconds = new Date().getTime() - START_TIME;
+    all('.' + styles.ceoSalary).forEach(el => (el.innerText = '$' + (milliseconds * CEO_PER_MILLISECOND).toFixed(2)));
+    all('.' + styles.workerSalary).forEach(
+      el => (el.innerText = '$' + (milliseconds * WORKER_PER_MILLISECOND).toFixed(2))
+    );
+  }, 16);
 }
 
 init();
