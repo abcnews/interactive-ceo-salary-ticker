@@ -11,7 +11,7 @@ function all(query) {
 }
 
 function init() {
-  all('[name^=salaryticker').forEach(element => {
+  all('[name^=salaryticker]').forEach(element => {
     const ticker = html`
       <div class="${styles.base}">
         <p>Since you started reading this story, the average CEO has earned</p>
