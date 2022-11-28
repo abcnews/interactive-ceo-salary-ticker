@@ -18,10 +18,10 @@
     }
   },
   "devDependencies": {
-    "@abcnews/aunty": "^7.6.0",
     "babel-preset-env": "^1.6.1"
   },
   "dependencies": {
+    "@abcnews/aunty": "^13.1.2",
     "bel": "^5.1.5"
   }
 }
