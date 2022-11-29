@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "@abcnews/aunty": "^13.1.2",
+    "@abcnews/env-utils": "^3.1.0",
+    "@abcnews/mount-utils": "^2.0.0",
     "bel": "^5.1.5"
   }
 }
