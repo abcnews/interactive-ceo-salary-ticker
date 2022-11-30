@@ -39,7 +39,6 @@ async function init() {
       const urlString = element.href;
       const searchString = urlString.substring(urlString.indexOf("?"));
       const query = queryString.parse(searchString);
-      console.log(query.chart);
 
       const iframe = html` <iframe
         src="https://www.abc.net.au/dat/news/interactives/graphics/${query.chart}/child.html"
