@@ -1,6 +1,5 @@
 const html = require("bel");
 import * as queryString from "query-string";
-console.log(queryString);
 import { whenOdysseyLoaded } from "@abcnews/env-utils";
 import { selectMounts } from "@abcnews/mount-utils";
 
@@ -34,37 +33,49 @@ async function init() {
     const chartElements = document.querySelectorAll(
       'a[href^="/news/interactives/chart"]'
     );
-    
+
     // Replace them in page
     for (const element of chartElements) {
       const urlString = element.href;
       const searchString = urlString.substring(urlString.indexOf("?"));
       const query = queryString.parse(searchString);
-      console.log(query);
+      console.log(query.chart);
 
       const iframe = html` <iframe
         src="https://www.abc.net.au/dat/news/interactives/graphics/${query.chart}/child.html"
         width="100%"
         frameborder="0"
-        scrolling="no"
         marginheight="0"
+        scrolling="no"
+        crossorigin="anonymous"
+        height="${query.chart === "2017-ceo-pay"
+          ? 211
+          : query.chart === "20171205-ceo-pay-rises"
+          ? 384
+          : query.chart === "20171205-ceo-gender-gap"
+          ? 245
+          : query.chart === "20171205-top-ceos-pay"
+          ? 615
+          : 0}px"
       >
       </iframe>`;
-      
+
       element.parentNode.replaceChild(iframe, element);
     }
 
     // Resize to fix charts
-    setTimeout(() => {
-      try {
-        const iframes = document.querySelectorAll("iframe");
-        for (let i = 0; i < iframes.length; i++) {
-          resizeIFrameToFitContent(iframes[i]);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }, 500);
+    // Not working even though same origin
+    // TODO: Fix later, for now manually set
+    // setTimeout(() => {
+    //   try {
+    //     const iframes = document.querySelectorAll("iframe");
+    //     for (let i = 0; i < iframes.length; i++) {
+    //       resizeIFrameToFitContent(iframes[i]);
+    //     }
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // }, 500);
   });
 
   // Count up
@@ -84,6 +95,6 @@ async function init() {
 
 init();
 
-function resizeIFrameToFitContent(iFrame) {
-  iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
-}
+// function resizeIFrameToFitContent(iFrame) {
+//   iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+// }
