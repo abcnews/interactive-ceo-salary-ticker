@@ -22,6 +22,10 @@
   },
   "dependencies": {
     "@abcnews/aunty": "^13.1.2",
-    "bel": "^5.1.5"
+    "@abcnews/env-utils": "^3.1.0",
+    "@abcnews/mount-utils": "^2.0.0",
+    "bel": "^5.1.5",
+    "iframe-resizer": "^4.3.2",
+    "query-string": "^7.1.1"
   }
 }
